@@ -75,13 +75,13 @@ Template Name: footer
 
 <!-------- Loading END ----->
 <script>
-var show = 6; //最初に表示する件数
-var num = 3;  //clickごとに表示したい件数
-var contents = '.ccc'; // 対象のlist
-$(contents + ':nth-child(n + ' + (show + 1) + ')').addClass('is-hidden');
-$('.more').on('click', function () {
-  $(contents + '.is-hidden').slice(0, num).removeClass('is-hidden');
-  if ($(contents + '.is-hidden').length == 0) {
+var moreNum = 4;
+$('.article:nth-child(n + ' + (moreNum + 1) + ')').addClass('is-hidden');
+$('.more').on('click', function() {
+  $('.is-hidden').slice(0, moreNum).fadeIn(300).queue(function(next){
+	$(this).removeClass('is-hidden');
+  });
+  if ($('.is-hidden').length == 1) {
     $('.more').fadeOut();
   }
 });

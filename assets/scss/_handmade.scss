@@ -1,0 +1,165 @@
+/* handmade.scss */
+
+
+	.main {
+		.primary,
+		.secondary {
+			@include full-margin;
+			@include relative();
+			// padding: 70px 0;
+			// PC
+			@include mq(tb) {
+				padding: 120px 0;
+			}
+			.inner {
+				max-width: 450px;
+				// PC
+				@include mq(tb) {
+					max-width: 1120px;
+				}
+				.ttl-handmade {
+					text-align: center;
+					margin-bottom: 60px;
+					// PC
+					@include mq(tb) {
+						margin-bottom: 80px;
+					}
+					h5 {
+						display: inline-block;
+						text-align: center;
+						padding-bottom: 20px;
+						margin-bottom:20px;
+						border-bottom: 1px solid #4f4f4f;
+						font-weight: 400;
+					}
+					p {
+						text-align: center;
+						line-height: 150%;
+					}
+				}
+			}
+		}
+		.primary {
+			@include bg-dgry;
+			.inner {
+				.shag-type {
+					@include f-box;
+					.shag-type-box {
+						@include box-sizing;
+						padding-bottom: 70px;
+						width: 100%;
+						// PC
+						@include mq(tb) {
+							padding-bottom: 50px;
+							width: 30%;
+						}
+						.in-img {
+							width: 100%;
+							height: 250px;
+							margin-bottom: 35px;
+							// PC
+							@include mq(tb) {
+								height: 350px;
+							}
+							.mini-leather,
+							.mini-cloth,
+							.regular-cloth {
+								@include img-cover;
+								height: 100%;
+							}
+						}
+						.in-text {
+							width: 100%;
+							text-align: left;
+							h6 {
+								@include color-wht;
+								margin-bottom: 30px;
+								font-weight: 500;
+								// PC
+								@include mq(tb) {
+									margin-bottom: 30px;
+								}
+								span {
+									font-weight: 400;
+									font-size: 65%;
+								}
+							}
+							p {
+								@include color-lgry;
+								text-align: left;
+								br {
+									@include br-pc;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.secondary {
+			//上記に合同記載
+			.inner {
+				//上記に合同記載
+				.shag-flow {
+					@include f-box;
+					justify-content: flex-start;
+					.shag-flow-box {
+						@include box-sizing;
+						padding-bottom: 70px;
+						width: 100%;
+						margin-right: 0;
+						// PC
+						@include mq(tb) {
+							padding-bottom: 60px;
+							width: 30%;
+							margin-right: 5%;
+							&:nth-of-type(3n) {
+								margin-right: 0;
+							}
+						}
+						.in-img {
+							width: 100%;
+							height: 220px;
+							margin-bottom: 25px;
+							// PC
+							@include mq(tb) {
+								height: 300px;
+							}
+							.img-use01,
+							.img-use02,
+							.img-use03,
+							.img-use04,
+							.img-use05,
+							.img-use06 {
+								@include img-cover;
+								height: 100%;
+							}
+						}
+						.in-text {
+							width: 100%;
+							text-align: left;
+							h5 {
+								@include color-wht;
+								text-align: center;
+								margin-bottom: 10px;
+								line-height: 1.7;
+								font-weight: 400;
+								// PC
+								@include mq(tb) {
+									margin-bottom: 20px;
+								}
+							}
+							p {
+								@include color-lgry;
+								text-align: left;
+								br {
+									@include br-pc;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+

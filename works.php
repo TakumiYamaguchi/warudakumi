@@ -55,7 +55,7 @@ Template Name: Works
                     $catslug = $cat[0]->slug; //スラッグ名
                     ?>
                     <div class="primary">
-                        <a href="<?php the_permalink(); ?>">
+                        <a href="/category/<?php echo $catName ?>">
                         <?php
 								$img = get_field('image');
 								$images = wp_get_attachment_image_src($img, 'サイズ');
@@ -63,7 +63,7 @@ Template Name: Works
 								$alt = get_post_meta ( get_post ($img) -> ID , '_wp_attachment_image_alt' , true );
 								?>
                         	<img
-								src="<?php echo $images[0]; ?>"
+								src="<?php the_field('image') ?>"
 								alt="<?php echo $alt; ?>"
                                 class="img-70"
 								>    

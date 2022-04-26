@@ -32,7 +32,6 @@ Template Name: Silkscreen
 	<div class="full-inner">
 		<div class="gallery">
 			<div class="gallery_area">
-				<!-- Start Loop -->
 				<?php $args = array(
 					'post_type' => 'silkscreen_archive',
 					'posts_per_page' => -1
@@ -41,15 +40,9 @@ Template Name: Silkscreen
 				if ($Silkscreen_Archive->have_posts()) : ?>
 					<?php while ($Silkscreen_Archive->have_posts()) : $Silkscreen_Archive->the_post();
 						$counter++; ?>
-						<?php
-						$img = get_field('image');
-						$images = wp_get_attachment_image_src($img, 'サイズ');
-						$img_alt = get_post(get_field('img'));
-						$alt = get_post_meta(get_post($img)->ID, '_wp_attachment_image_alt', true);
-						?>
 							<div class="silkscreen_article article">
-								<a class="group1" href="<?php echo $images[0]; ?>" title="<?php echo $alt; ?>">
-									<img src="<?php echo $images[0]; ?>" alt="<?php echo $alt; ?>">
+								<a class="group1" href="<?php the_field('image'); ?>" title="<?php the_title(); ?>">
+								<img src="<?php the_field('image'); ?>" alt="<?php the_title(); ?>">
 								</a>
 							</div>
 					<?php endwhile; ?>

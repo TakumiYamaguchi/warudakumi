@@ -40,7 +40,7 @@ Template Name: Archive
             <?php if ($worksAll->have_posts()) : ?>
                 <?php while ($worksAll->have_posts()) : $worksAll->the_post(); ?>
                     <!--- start loop ---->
-                    <div class="in-work" id="<?php the_field('image') ?>">
+                    <div class="in-work" id="<?php the_field('id') ?>">
                         <div class="in-text">
                             <p class="p-small">
                                 <?php

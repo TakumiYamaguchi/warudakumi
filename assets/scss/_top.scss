@@ -159,6 +159,10 @@ body.top {
 		}
 		.top-handmade,
 		.top-silk {
+			position: relative;
+			margin-right: calc(50% - 50vw);
+			margin-left: calc(50% - 50vw);
+			background-color: #1c1c1c;
 			.inner {
 				.primary {
 					@include relative();

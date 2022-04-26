@@ -55,7 +55,7 @@ Template Name: Works
                     $catslug = $cat[0]->slug; //スラッグ名
                     ?>
                     <div class="primary">
-                        <a href="/category/<?php echo $catName ?>">
+                        <a href="<?php echo home_url(); ?>/category/<?php echo $catslug ?>#<?php the_field('id') ?>">
                         <?php
 								$img = get_field('image');
 								$images = wp_get_attachment_image_src($img, 'サイズ');

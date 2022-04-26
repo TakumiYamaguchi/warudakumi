@@ -152,7 +152,6 @@ Template Name: TOP
 			<div class="inner">
 				<h2>Shop information</h2>
 				<div class="list-shop">
-					<!-- Start Loop -->
 					<?php $args = array(
 						'post_type' => 'shop_information',
 					);
@@ -162,16 +161,7 @@ Template Name: TOP
 					<div class="btn-effect01">
 						<div class="in-item">
 							<a class="in-img" href="<?php the_field('url'); ?>" target="_blank">
-							<?php
-								$img = get_field('image');
-								$images = wp_get_attachment_image_src($img, 'サイズ');
-								$img_alt = get_post(get_field('img'));
-								$alt = get_post_meta ( get_post ($img) -> ID , '_wp_attachment_image_alt' , true );
-								?>
-								<img
-								src="<?php echo $images[0]; ?>"
-								alt="<?php echo $alt; ?>"
-								>
+								<img src="<?php the_field('image'); ?>" alt="<?php the_title(); ?>">
 							</a>
 							<p class="p-big">
 								<a href="<?php the_field('url'); ?>" target="_blank">

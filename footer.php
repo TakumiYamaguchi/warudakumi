@@ -81,7 +81,7 @@ $('.more').on('click', function() {
   $('.is-hidden').slice(0, moreNum).fadeIn(300).queue(function(next){
 	$(this).removeClass('is-hidden');
   });
-  if ($('.is-hidden').length == 1) {
+  if ($('.is-hidden').length == 0) {
     $('.more').fadeOut();
   }
 });

@@ -49,12 +49,20 @@ Template Name: TOP
 				</div>
 			</div>
 		</section>
+		<?php
+            $array = array(
+                'post_type' => 'top_main_img',
+            );
+            $top_main_img = new WP_Query($array);
+            ?>
+            <?php if ($top_main_img->have_posts()) : ?>
+            <?php while ($top_main_img->have_posts()) : $top_main_img->the_post(); ?>
 		<!-------- top-handmade ----->
 		<section class="section-top top-handmade">
 			<div class="inner">
 				<div class="primary">
 					<div class="works-img">
-						<div class="img-top-handmade"></div>
+							<img class="img-top-handmade" src="<?php the_field('handmade_main_img');?>" alt="handmade">
 					</div>
 					<div class="works-text">
 						<h2>Handmade</h2>
@@ -74,7 +82,7 @@ Template Name: TOP
 			<div class="inner">
 				<div class="primary">
 					<div class="works-img">
-						<div class="img-top-silkscreen"></div>
+						<img class="img-top-silkscreen" src="<?php the_field('silkscreen_main_img');?>" alt="silkscreen">
 					</div>
 					<div class="works-text">
 						<h2>Silkscreen</h2>
@@ -105,8 +113,8 @@ Template Name: TOP
 				</div>
 				<div class="works-list">
 					<div class="primary">
-						<a class="top-a btn-effect01" href="<?php echo home_url(); ?>/category/graphic">
-							<img class="img-100" src="<?php echo get_template_directory_uri();?>/assets/images/work/graphic/graphic_2015_fullmoonassembly_01.jpg" alt="Graphic">
+						<a class="top-a btn-effect01" href="<?php echo home_url(); ?>/category/graphic">					
+						<img class="img-100" src="<?php the_field('design_works_graphic');?>" alt="handmade">
 							<div class="mask">
 								<div class="caption">
 									<p class="p-copy">Graphic</p>
@@ -116,7 +124,7 @@ Template Name: TOP
 					</div>
 					<div class="primary">
 						<a class="top-a" href="<?php echo home_url(); ?>/category/package">
-							<img class="img-100" src="<?php echo get_template_directory_uri();?>/assets/images/work/package/package_2019_ganesh_furikake01.jpg" alt="Package">
+						<img class="img-100" src="<?php the_field('design_works_package');?>" alt="package">
 							<div class="mask">
 								<div class="caption">
 									<p class="p-copy">Package</p>
@@ -126,7 +134,7 @@ Template Name: TOP
 					</div>
 					<div class="primary">
 						<a class="top-a" href="<?php echo home_url(); ?>/category/logo">
-							<img class="img-100" src="<?php echo get_template_directory_uri();?>/assets/images/work/logo/logo_2017_atatsutei.jpg" alt="Package">
+						<img class="img-100" src="<?php the_field('design_works_logo');?>" alt="logo">
 							<div class="mask">
 								<div class="caption">
 									<p class="p-copy">Logo</p>
@@ -136,7 +144,7 @@ Template Name: TOP
 					</div>
 					<div class="primary">
 						<a class="top-a" href="<?php echo home_url(); ?>/category/web">
-							<img class="img-100" src="<?php echo get_template_directory_uri();?>/assets/images/work/web/web_2021_hiramito.png" alt="Web">
+						<img class="img-100" src="<?php the_field('design_works_web');?>" alt="logo">
 							<div class="mask">
 								<div class="caption">
 									<p class="p-copy">Web</p>
@@ -147,6 +155,11 @@ Template Name: TOP
 				</div>
 			</div>
 		</section>
+		<?php endwhile; ?>
+            <?php else : ?>
+                <p>投稿が見つかりません。</p>
+            <?php endif;
+            wp_reset_postdata(); ?>
 		<!-------- top-shop --------->
 		<section class="section-top top-shop">
 			<div class="inner">

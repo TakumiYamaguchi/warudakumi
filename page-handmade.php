@@ -8,9 +8,17 @@ Template Name: Handmade
 		<!-------- page-view ----->
 		<section class="page-view" data-midnight="black">
 			<div class="inner">
+			<?php
+            $array = array(
+                'post_type' => 'section_top_view',
+            );
+            $section_top_view = new WP_Query($array);
+            ?>
+            <?php if ($section_top_view->have_posts()) : ?>
+            <?php while ($section_top_view->have_posts()) : $section_top_view->the_post(); ?>
 				<div class="ttl-box">
 					<div class="works-img">
-						<div class="topview-handmade"></div>
+							<img class="topview-handmade" src="<?php the_field('handmade'); ?>" alt="Handmade">
 					</div>
 					<div class="works-text">
 						<h2>Handmade</h2>
@@ -26,6 +34,11 @@ Template Name: Handmade
 						</p>
 					</div>
 				</div>
+				<?php endwhile; ?>
+            <?php else : ?>
+                <p>投稿が見つかりません。</p>
+            <?php endif;
+            wp_reset_postdata(); ?>
 			</div>
 		</section>
 		<!------- handmade ---------->

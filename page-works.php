@@ -7,10 +7,22 @@ Template Name: Works
 <main class="main">
     <!-------- page-view ----->
     <section class="page-view" data-midnight="black">
+			<div class="inner">
+			<?php
+            $array = array(
+                'post_type' => 'section_top_view',
+            );
+            $section_top_view = new WP_Query($array);
+            ?>
+    <section class="page-view" data-midnight="black">
         <div class="inner">
+        <?php if ($section_top_view->have_posts()) : ?>
+            <?php while ($section_top_view->have_posts()) : $section_top_view->the_post(); ?>
             <div class="ttl-box">
                 <div class="works-img">
-                    <div class="topview-works"></div>
+                    <div class="topview-works">
+                    <img class="topview-handmade" src="<?php the_field('design_works'); ?>" alt="Works">
+                    </div>
                 </div>
                 <div class="works-text">
                     <h2>Design Works</h2>
@@ -26,6 +38,11 @@ Template Name: Works
                     </p>
                 </div>
             </div>
+            <?php endwhile; ?>
+            <?php else : ?>
+                <p>投稿が見つかりません。</p>
+            <?php endif;
+            wp_reset_postdata(); ?>
         </div>
         <div id="tab" class="tab_nav">
             <ul>

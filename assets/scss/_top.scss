@@ -182,7 +182,8 @@ body.top {
 							height: 80vw;
 							// PC
 							@include mq(tb) {
-								height: 480px;
+								// height: 480px;
+								height: auto;
 							}
 						}
 					}

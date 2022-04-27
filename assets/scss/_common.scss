@@ -178,10 +178,16 @@ main {
 				.topview-silkscreen,
 				.topview-works {
 					@include img-cover;
-					height: 190px;
+					// height: 190px;
+					height: auto;
+					max-height: 190px;
+					object-fit: cover;
 					// PC
 					@include mq(tb) {
-						height: 380px;
+						// height: 380px;
+						height: auto;
+    object-fit: cover;
+    max-height: 380px;
 					}
 				}
 			}

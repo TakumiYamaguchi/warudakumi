@@ -168,6 +168,7 @@ body.top {
 					@include relative();
 					@include f-box;
 					margin: 0 auto;
+					padding: 0;
 					.works-img {
 						width: 100%;
 						margin-bottom: 35px;
@@ -183,6 +184,7 @@ body.top {
 							// PC
 							@include mq(tb) {
 								// height: 480px;
+								max-height: 480px;
 								height: auto;
 							}
 						}

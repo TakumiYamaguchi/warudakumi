@@ -26,7 +26,7 @@
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
 <link rel="canonical" href="https://warudakumi315.com/">
-<link rel="icon" href="assets/images/icon/favicon.ico">
+<!-- <link rel="icon" href="assets/images/icon/favicon.ico"> -->
 <link rel="apple-touch-icon" href="assets/images/icon/app_logo.jpg" sizes="180x180">
 <!-- CSS -->
 <!--function.php wp_enqueue_scrip()から読み込み-->

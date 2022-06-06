@@ -57,22 +57,35 @@
 				}
 
 				button {
-					background-color: #bbdeff;
-					border: none;
+					// background-color: #bbdeff;
+					// border: none;
 					cursor: pointer;
-					outline: none;
-					padding: 0;
-					height: 32px;
-					line-height: 32px;
-					width: 120px;
-					border-radius: 16px;
+					// outline: none;
+					// padding: 0;
+					// height: 32px;
+					// line-height: 32px;
+					// width: 120px;
+					// border-radius: 16px;
+					width: 200px;
+					height: 56px;
+					border: 1px solid #ccc;
+					border-radius: 3px;
+					background-color: #ffffff;
+					font-size: 1.5rem;
+				}
+				button:hover{
+					opacity: 0.5;
+					font-weight: bold;
+					transition : .5s;
 				}
 
 				.more{
 					display: flex;
 					justify-content: center;
 					width: 100%;
-					margin: 1rem 0;
+					// margin: 1rem 0;
+					margin: 2rem 0 5rem;
+
 				}
 				.more::before{
 					display: none;

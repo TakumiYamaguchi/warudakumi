@@ -1,7 +1,7 @@
 /* yurayura.js */
 
-jQuery( function( $ ) {
-  $.fn.yurayura = function( config ) {
+jQuery( function( jQuery ) {
+  jQuery.fn.yurayura = function( config ) {
     var obj = this;
     var i = 0;
     var defaults = {
@@ -9,12 +9,12 @@ jQuery( function( $ ) {
       'duration' : 1000,  // 移動にかける時間
       'delay' : 0         // 両端で停止する時間
     };
-    var setting = $.extend( defaults, config );
+    var setting = jQuery.extend( defaults, config );
     return obj.each( function() {
       ( function move() {
         i = i > 0 ? -1 : 1;
         var p = obj.position().top;
-        $( obj )
+        jQuery( obj )
           .delay( setting.delay )
           .animate( { top : p + i * setting.move }, {
             duration : setting.duration,
@@ -25,8 +25,8 @@ jQuery( function( $ ) {
   };
 } );
 
-$(function(){
-	$('.in-yurayura').yurayura( {
+jQuery(function(){
+	jQuery('.in-yurayura').yurayura( {
 		'move' : 15,
 		'delay' : 100,
 		'duration' : 1000

@@ -4,16 +4,7 @@ Template Name: footer
 */
 ?>
 <footer>
-    <div class="fixed-sns">
-        <p class="sns-ttl">follow me</p>
-        <div class="line-high"></div>
-        <a href="https://www.instagram.com/warudakumi315/" class="sns-btn" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="http://warudakumi.theshop.jp/" class="sns-btn" target="_blank">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-    </div>
+   
     <div class="inner">
         <div class="footer-logo">
             <a href="/" class="img-logo"></a>
@@ -24,8 +15,19 @@ Template Name: footer
             <li><a href="<?php echo home_url(); ?>/silkscreen">Silkscreen</a></li>
             <li><a href="<?php echo home_url(); ?>/works">Design Works</a></li>
         </ul>
+        <div class="fixed-sns">
+            <p class="sns-ttl">follow me</p>
+            <div class="line-high"></div>
+            <a href="https://www.instagram.com/warudakumi315/" class="sns-btn" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="http://warudakumi.theshop.jp/" class="sns-btn" target="_blank">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </div>
+        <p class="footer-copyright">© 2022 惡匠 warudakumi.</p>
     </div>
-    <p class="footer-copyright">© 2021 惡匠 warudakumi.</p>
+   
 </footer>
 <?php wp_footer(); ?>
 </body>

@@ -58,7 +58,7 @@ Template Name: Silkscreen
 				<?php endif; ?>
 				<?php wp_reset_postdata(); ?>
 				<div class="more">
-					<button>もっと見る</button>
+					<button>see more</button>
 				</div>
 			</div>
 		</div>

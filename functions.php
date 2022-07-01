@@ -154,7 +154,8 @@ function delete_jquery() {
 function _s_scripts()
 {
 	//stylesheet読み込み
-	wp_enqueue_style('style', get_template_directory_uri() . '/css/style.min.css');
+	//wp_enqueue_style('style', get_template_directory_uri() . '/css/style.min.css');
+	wp_enqueue_style('style', get_template_directory_uri() . '/css/style.css');
 	//fontawesome
 	wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css',array(), '5.6.3');
 	wp_style_add_data('_s-style', 'rtl', 'replace');

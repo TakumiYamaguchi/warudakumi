@@ -113,7 +113,7 @@ body.top {
 		.top-about,
 		.top-contact {
 			.inner {
-				max-width: 600px;
+				max-width: 580px;
 				h2 {
 					@include color-wht;
 					margin: 10px 0 30px 0;
@@ -172,6 +172,8 @@ body.top {
 					.works-img {
 						width: 100%;
 						margin-bottom: 35px;
+						max-height: 480px;
+						overflow: hidden;
 						// PC
 						@include mq(tb) {
 							width: 50%;
@@ -183,8 +185,6 @@ body.top {
 							height: 80vw;
 							// PC
 							@include mq(tb) {
-								// height: 480px;
-								max-height: 480px;
 								height: auto;
 							}
 						}
@@ -287,13 +287,12 @@ body.top {
 						justify-content: center;
 						align-items: center;
 						width: 100%;
-						// margin-bottom: 100px;
 						///////*WP化追記*//////
-						height: 280px;
+						height: 320px;
 						position: relative;
 						background-color: unset;
 						padding: 0;
-						margin: 0 auto 100px;
+						margin: 0 auto;
 						///////*ここまでWP化追記*//////
 						&:last-child {
 							margin-bottom: 0;
@@ -301,6 +300,7 @@ body.top {
 						// PC
 						@include mq(tb) {
 							width: 49%;
+							height: 340px;
 							max-width: none;
 							margin-bottom: 20px;
 						}
@@ -312,7 +312,7 @@ body.top {
 							// PC
 							@include mq(tb) {
 								overflow: hidden;
-								height: 280px;
+								height: 340px;
 							}
 							img {
 								width: 100%;
@@ -335,7 +335,7 @@ body.top {
 									padding-top: 0;
 									// PC
 									@include mq(tb) {
-										padding-top: 110px;
+										padding-top: 140px;
 									}
 									.p-copy {
 										@include color-blk;
@@ -380,36 +380,34 @@ body.top {
 		.top-shop,
 		.top-thx {
 			.inner {
+				max-width: 420px;
+				// PC
+				@include mq(tb) {
+					max-width: 1200px;
+				}
 				h2 {
-					margin: 0 auto 25px;
+					margin: 0 auto 35px;
 					// PC
 					@include mq(tb) {
-						margin: 0 auto 55px;
+						margin: 0 auto 60px;
 					}
 				}
 				.list-shop,
 				.list-thx {
-				   @include relative();
 					flex-wrap: wrap; /* 画面幅に合わせてカラム落ちさせる */
 					display: flex;
 					justify-content: space-between;
+					align-items: top;
 					.btn-effect01 {
 						@include bg-dgry;
-						@include box-sizing;
-						padding: 20px 15px;
-						flex-wrap: wrap;
-						-webkit-flex-wrap: wrap;
-						display: block;
-						width: 100%;
-						max-width: 420px;
-						margin: 0 auto 15px;
-						// PC
-						@include mq(tb) {
-							@include box-sizing;
-							width: 32%;  //幅を揃える
-							max-width: none;
-							margin: 0 auto 30px;
-						}
+						width: 100%;  /* お好みの幅で指定 */
+						padding: 16px;  /* お好みの幅で指定 */
+						margin-bottom: 15px;
+						/* paddingと合わせてbox-sizingも指定 */
+						-moz-box-sizing: border-box;
+						-webkit-box-sizing: border-box;
+						-o-box-sizing: border-box;
+						-ms-box-sizing: border-box;
 						&:hover {
 							.in-item {
 								.p-big {
@@ -422,6 +420,10 @@ body.top {
 								}
 							}
 						}
+						// PC
+						@include mq(tb) {
+							width: 32%;  /* お好みの幅で指定 */
+						}
 						.in-item {
 							@include relative();
 							display: flex;
@@ -433,6 +435,9 @@ body.top {
 								width: 100%;
 								margin: 0 auto;
 								padding: 0;
+								&:hover {
+									opacity: 0.3;
+								}
 								img {
 									max-width: 420px;
 									width: 100%;

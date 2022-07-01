@@ -11,11 +11,11 @@ body {
 	@include relative();
 	@include bg-wa01;
 	text-align: center;
-    border: none;
+	border: none;
 	margin: 0px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
 }
 
 main {
@@ -27,7 +27,7 @@ main {
 .inner {
 	@include box-sizing;
 	width: 100%;
-	max-width: 1120px;
+	max-width: 1200px;
 	margin: 0 auto;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -44,10 +44,11 @@ main {
 	@include bg-wa01;
 	@include full-margin;
 	margin: 0 auto;
-	padding-top: 60px;
-	padding-bottom: 80px;
+	padding-top: 20px;
+	padding-bottom: 0;
 	// PC
 	@include mq(tb) {
+		padding-top: 60px;
 		padding-bottom: 80px;
 	}
 }
@@ -69,7 +70,7 @@ main {
 	// PC
 	@include mq(tb) {
 		max-width: 600px;
-		padding: 35px 0;
+		padding: 40px 0 20px;
 	}
 	ul {
 		@include flex;
@@ -186,8 +187,8 @@ main {
 					@include mq(tb) {
 						// height: 380px;
 						height: auto;
-    object-fit: cover;
-    max-height: 380px;
+						object-fit: cover;
+						max-height: 380px;
 					}
 				}
 			}
@@ -203,7 +204,11 @@ main {
 				}
 				p.p-first {
 					@include color-blk;
-					text-align: center;
+					text-align: left;
+					// PC
+					@include mq(tb) {
+						text-align: center;
+					}
 				}
 			}
 		}
@@ -284,7 +289,7 @@ main {
 		height: 120px;
 	}
 	p {
-		@include absolute($top:50%, $left:50%);
+		@include absolute($top: 50%, $left: 50%);
 		@include transform-center;
 		font-size: 1.7rem;
 		text-align: center;
@@ -302,7 +307,7 @@ main {
 .btn-hamon.ripple {
 	@include relative();
 	&::before {
-		@include absolute($top:0, $left:0);
+		@include absolute($top: 0, $left: 0);
 		content: "";
 		width: 100%;
 		height: 100%;
@@ -313,39 +318,39 @@ main {
 		animation: ripple 4s cubic-bezier(0.3, 0, 0.1, 1) infinite;
 	}
 }
- 
+
 @-webkit-keyframes ripple {
 	0% {
 		-webkit-transform: scale(1, 1);
-				transform: scale(1, 1);
+		transform: scale(1, 1);
 		opacity: 0;
 	}
 	60% {
 		-webkit-transform: scale(1, 1);
-				transform: scale(1, 1);
+		transform: scale(1, 1);
 		opacity: 0.5;
 	}
 	100% {
-	-webkit-transform: scale(1.6, 1.6);
-			transform: scale(1.6, 1.6);
-	opacity: 0;
+		-webkit-transform: scale(1.6, 1.6);
+		transform: scale(1.6, 1.6);
+		opacity: 0;
 	}
 }
 
 @keyframes ripple {
 	0% {
 		-webkit-transform: scale(1, 1);
-				transform: scale(1, 1);
+		transform: scale(1, 1);
 		opacity: 0;
 	}
 	60% {
 		-webkit-transform: scale(1, 1);
-				transform: scale(1, 1);
+		transform: scale(1, 1);
 		opacity: 0.5;
 	}
 	100% {
 		-webkit-transform: scale(1.6, 1.6);
-				transform: scale(1.6, 1.6);
+		transform: scale(1.6, 1.6);
 		opacity: 0;
 	}
 }
@@ -360,9 +365,9 @@ main {
 	display: inline-block;
 	text-decoration: none;
 	&::after {
-		@include absolute($bottom:0, $left:0);
+		@include absolute($bottom: 0, $left: 0);
 		@include bg-red;
-		content: '';
+		content: "";
 		width: 0;
 		height: 1px;
 		transition: all 0.3s ease 0s;
@@ -382,9 +387,9 @@ main {
 	@include relative();
 	background: transparent;
 	z-index: 1;
-	transition: .3s;
+	transition: 0.3s;
 	&::before {
-		@include absolute($top:0, $left:0);
+		@include absolute($top: 0, $left: 0);
 		@include bg-blk;
 		content: "";
 		width: 100%;
@@ -392,7 +397,7 @@ main {
 		z-index: -1;
 		transform-origin: 50% 0%;
 		transform: scaleY(0);
-		transition: transform ease .4s;
+		transition: transform ease 0.4s;
 	}
 	&:hover {
 		&::before {
@@ -456,7 +461,7 @@ main {
 					text-align: center;
 					font-size: 2.3rem;
 					@include mq(tb) {
-						font-size: 3.0rem;
+						font-size: 3rem;
 					}
 				}
 			}
@@ -491,22 +496,22 @@ a.btnarrow4 {
 	display: inline-block;
 	padding: 0 25px 5px;
 	outline: none;
-	&::before { 
-		@include absolute($bottom:-8px, $left:15%);
+	&::before {
+		@include absolute($bottom: -8px, $left: 15%);
 		@include bg-wht;
-		content: '';    
+		content: "";
 		width: 85%;
 		height: 1px;
-		transition: all .3s;
+		transition: all 0.3s;
 	}
 	&::after {
-		@include absolute($bottom:-3px, $right:0);
+		@include absolute($bottom: -3px, $right: 0);
 		@include bg-wht;
-		content: '';  
+		content: "";
 		width: 15px;
 		height: 1px;
 		transform: rotate(35deg);
-		transition: all .3s;
+		transition: all 0.3s;
 	}
 	&:hover {
 		@include color-red;
@@ -525,7 +530,7 @@ a.btnarrow4 {
    WORKS >in-work 共通
 -------------------------------------------------- */
 .in-work {
-	padding: 20px 0;
+	padding: 50px 0;
 	display: block;
 	border-bottom: dotted 1px #4f4f4f;
 	// PC
@@ -541,7 +546,7 @@ a.btnarrow4 {
 			width: 30%;
 			padding-right: 20px;
 			padding-bottom: 0;
-		}							
+		}
 		.p-small {
 			@include color-lgry;
 			line-height: 150%;
@@ -596,3 +601,34 @@ a.btnarrow4 {
 	}
 }
 
+/* --------------------------------------------------
+  works-page-nation
+-------------------------------------------------- */
+
+.works-page-nation {
+	padding-top: 40px;
+	margin-top: 0;
+	margin-bottom: 40px;
+	.wp-pagenavi {
+		text-align: center;
+		.pages {
+			display: none;
+		}
+		span,
+		a {
+			@include color-wht;
+			text-decoration: none;
+			border: none;
+			display: inline-block;
+			padding: 15px 20px;
+			margin: 2px;
+			font-size: 1.8rem;
+			&:hover {
+				@include color-red;
+			}
+		}
+		.current {
+			font-weight: bold;
+		}
+	}
+}

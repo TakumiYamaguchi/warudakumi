@@ -20,18 +20,18 @@
 	#mobile-head {
 		@include relative();
 		.sp-nav {
-			@include absolute($top:-600px); // 開いてないときは画面外に配置
+			@include absolute($top:-620px); // 開いてないときは画面外に配置
 			@include bg-wht;
 			display: block;
-			padding: 120px 0 10px 0;
+			padding-top: 100px;
 			width: 100%;
 			-webkit-transition: .5s ease-in-out;
 			-moz-transition: .5s ease-in-out;
 			transition: .5s ease-in-out;
 			// PC
-			@include mq(tb) {
+			/*@include mq(tb) {
 				display: none;
-			}
+			}*/
 			.sp-nav-box {
 				a {
 					@include color-blk;
@@ -50,6 +50,7 @@
 					}
 					&:hover {
 							@include color-red;
+							font-weight: bold;
 						i {
 							@include color-red;
 						}
@@ -96,6 +97,10 @@
 			-moz-transition: .5s ease-in-out;
 			transition: .5s ease-in-out;
 			opacity: 1 !important;
+			&:hover {
+				@include color-red;
+				font-weight: bold;
+			}
 		}
 	}
 }
@@ -137,12 +142,12 @@
 			width: 34px;
 			height: 36px;
 			// PC
-			@include mq(tb) {
+			/*@include mq(tb) {
 				display: none;
-			}
+			}*/
 			span {
 				@include absolute();
-				@include bg-blk;
+				@include bg-mok;
 				font-size: 1.2rem;
 				display: flex;
 				width: 34px;
@@ -164,7 +169,7 @@
 		ul {
 			display: none;
 			// PC
-			@include mq(tb) {
+			/*@include mq(tb) {
 				@include absolute($top:0, $right:0);
 				display: inline-block;
 				list-style: none;
@@ -213,12 +218,12 @@
 					}
 
 				}
-			}
+			}*/
 		}
 	}
 }
 
-.midnightHeader.default {
+/*.midnightHeader.default {
 	.sns-ttl {
 		color: #fff !important;
 		z-index: 9999;
@@ -235,7 +240,7 @@
 		background-color: #fff !important;
 		color: #fff !important;
 	}
-}
+}*/
 
 /* --------------------------------------------------
     動くアンダーライン

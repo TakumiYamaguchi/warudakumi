@@ -14,6 +14,7 @@
 					justify-content: flex-start;
 				}
 				.primary {
+					background-color: transparent;
 					display: inline-block;
 					text-align: center;
 					justify-content: center;
@@ -36,7 +37,7 @@
 						margin: 0 auto;
 						// PC
 						@include mq(tb) {
-							height: 300px;
+							height: 320px;
 						}
 						img {
 							object-fit: cover;
@@ -48,7 +49,7 @@
 							width: 100%;
 							opacity: 1;	//マスク表示する
 							background: none;
-							margin-top: 10px;
+							margin-top: 20px;
 							// PC
 							@include mq(tb) {
 								@include absolute($top:0, $left:0);

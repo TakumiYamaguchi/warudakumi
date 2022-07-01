@@ -14,7 +14,7 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
     <meta name="description" content="惡の匠で「わるだくみ」オリジナルデザインのグッズやハンドメイド商品やアートワークを制作しています。webshopにてオリジナルグッズを販売しています。">
     <meta name="keywords" content="惡匠,悪匠,わるだくみ,design,デザイン,オリジナル,original,handmade,巻きタバコ">
-    <meta name="copyright" content="© 2021 惡匠 warudakumi">
+    <meta name="copyright" content="© 2022 惡匠 warudakumi">
     <meta name="format-detection" content="telephone=no">
     <!-- ogp -->
     <meta property="og:site_name" content="惡匠｜惡の匠で「わるだくみ」">

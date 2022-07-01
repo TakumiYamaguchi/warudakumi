@@ -24,13 +24,9 @@ $breakpoint-up: (
 /* --------------------------------------------------
    [共通] color (色)
 -------------------------------------------------- */
-//レッド #e50012
+//レッド
 @mixin color-red { color: #e50012; }
 @mixin bg-red { background-color: #e50012; }
-
-//ダークグレー #1C1C1C
-@mixin color-dgry { color: #1C1C1C; }
-@mixin bg-dgry { background-color: #1C1C1C; }
 
 //ホワイト
 @mixin color-wht { color: #f9f9f9; }
@@ -40,15 +36,23 @@ $breakpoint-up: (
 @mixin color-blk { color: #000000; }
 @mixin bg-blk { background-color: #000000; }
 
+//ダークグレー
+@mixin color-dgry { color: #1C1C1C; }
+@mixin bg-dgry { background-color: #1C1C1C; }
+
 //グレー
 @mixin color-gry { color: #4f4f4f; }
 @mixin bg-gry { background-color: #4f4f4f; }
 
-//ライトグレー #dcdcdc
+//杢グレー
+@mixin color-mok { color: #939393; }
+@mixin bg-mok { background-color: #939393; }
+
+//ライトグレー
 @mixin color-lgry { color: #dcdcdc; }
 @mixin bg-lgry { background-color: #dcdcdc; }
 
-//ライトライトグレー #f5f5f5
+//ライトライトグレー
 @mixin color-llgry { color: #f5f5f5; }
 @mixin bg-llgry { background-color: #f5f5f5; }
 

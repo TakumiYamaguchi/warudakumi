@@ -1,14 +1,20 @@
 <?php
-	/*
+/*
 	Template Name: header
 	*/
-	?>
+?>
 <!DOCTYPE html>
 <html lang="ja" class="pc normal desktop ja header_active">
 
 <head>
     <meta charset="UTF-8">
-    <title><?php wp_title(''); ?></title>
+    <?php if (is_home()) : ?>
+    <title><?php bloginfo() ?></title>
+    <?php elseif(is_page()) : ?>
+    <title><?php echo trim(wp_title('', false)); ?></title>
+    <?php elseif(is_archive()) : ?>
+    <title>アートワーク｜惡匠</title>
+    <?php endif ?>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
@@ -18,8 +24,15 @@
     <meta name="format-detection" content="telephone=no">
     <!-- ogp -->
     <meta property="og:site_name" content="惡匠｜惡の匠で「わるだくみ」">
-    <meta property="og:title" content="惡匠｜惡の匠で「わるだくみ」">
-    <meta property="og:type" content="website">
+    <?php if (is_home()) : ?>
+    <meta property="og:title" content="<?php echo trim(bloginfo('', false)); ?>">
+    <?php elseif (is_page()) : ?>
+    <meta property="og:title" content="<?php echo trim(wp_title('', false)); ?>">
+    <?php elseif (is_archive()) : ?>
+    <meta property="og:title" content="アートワーク｜惡匠">
+    <?php endif; ?>
+
+    <meta property=" og:type" content="website">
     <meta property="og:url" content="https://www.warudakumi315.com">
     <meta property="og:description"
         content="惡の匠で「わるだくみ」オリジナルデザインのグッズやハンドメイド商品やアートワークを制作しています。webshopにてオリジナルグッズを販売しています。">
@@ -29,7 +42,7 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://warudakumi315.com/">
-    <link rel="icon" href="<?php echo get_template_directory_uri();?>/assets/images/icon/favicon.ico">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/icon/favicon.ico">
     <link rel="apple-touch-icon" href="/assets/images/icon/app_logo.jpg" sizes="180x180">
     <?php wp_head(); ?>
 </head>
@@ -39,7 +52,7 @@
     <!-------- Loading OPEN----->
     <div id="loading-wrapper">
         <strong class="loading">
-            <img src="<?php echo get_template_directory_uri();?>/assets/images/icon/logo-red.svg" alt="惡匠logo">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/logo-red.svg" alt="惡匠logo">
         </strong>
     </div>
 
@@ -51,7 +64,7 @@
                     <a href="<?php echo home_url(); ?>/">Home</a>
                     <a href="<?php echo home_url(); ?>/handmade">Handmade</a>
                     <a href="<?php echo home_url(); ?>/silkscreen">Silkscreen</a>
-                    <a href="<?php echo home_url();?>/works">Design Works</a>
+                    <a href="<?php echo home_url(); ?>/works">Design Works</a>
                     <a href="https://www.instagram.com/warudakumi315/" target="_blank">
                         <i class="fab fa-instagram icon-insta-sp"></i>
                     </a>
@@ -74,7 +87,7 @@
                     <li><a class="global-nav-text" href="<?php echo home_url(); ?>/">Home</a></li>
                     <li><a class="global-nav-text" href="<?php echo home_url(); ?>/handmade">Handmade</a></li>
                     <li><a href="<?php echo home_url(); ?>/silkscreen">Silkscreen</a></li>
-                    <li><a href="<?php echo home_url();?>/works">Design Works</a></li>
+                    <li><a href="<?php echo home_url(); ?>/works">Design Works</a></li>
                     <li>
                         <a class="global-nav-text" href="https://www.instagram.com/warudakumi315/" target="_blank">
                             <i class="fab fa-instagram icon-insta"></i>

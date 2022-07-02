@@ -48,15 +48,6 @@ Template Name: Works
     </section>
     <!------- works ---------->
     <div class="inner works-inner">
-        <?php
-        $categories = get_categories(array('hide_empty' => false)); // 記事数が0のカテゴリーも取得する
-        foreach ($categories as $category) :
-            $cateName = $category->name; // カテゴリー名を取得
-            $cateCount = $category->category_count; // カテゴリーの記事数を取得
-        ?>
-        <div><?php echo $cateName . "の記事数は" . $cateCount . "です。"; ?>
-        </div>
-        <?php endforeach; ?>
         <div class="works-list">
             <?php
             $array = array(
@@ -81,12 +72,6 @@ Template Name: Works
                     $page = round($number/10+0.5);
                     ?>
             <div class="primary">
-                <?php
-                        $number = get_post_number();
-                        echo ('<span>');
-                        echo esc_html($number);
-                        echo ('</span>');
-                        ?>
                 <a
                     href="<?php echo home_url(); ?>/category/<?php echo $catslug ?>/page/<?php echo $page ?>/#<?php the_field('id') ?>">
                     <?php

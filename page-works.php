@@ -48,6 +48,15 @@ Template Name: Works
     </section>
     <!------- works ---------->
     <div class="inner works-inner">
+        <?php
+        $categories = get_categories(array('hide_empty' => false)); // 記事数が0のカテゴリーも取得する
+        foreach ($categories as $category) :
+            $cateName = $category->name; // カテゴリー名を取得
+            $cateCount = $category->category_count; // カテゴリーの記事数を取得
+        ?>
+        <div><?php echo $cateName . "の記事数は" . $cateCount . "です。"; ?>
+        </div>
+        <?php endforeach; ?>
         <div class="works-list">
             <?php
             $array = array(
@@ -59,15 +68,27 @@ Template Name: Works
             );
             $worksAll = new WP_Query($array);
             ?>
+            <?php $post_id = (int) ($cat_total / 10 + 0.5) ?>
             <?php if ($worksAll->have_posts()) : ?>
             <?php while ($worksAll->have_posts()) : $worksAll->the_post(); ?>
+            <div class="entry-count">
+            </div>
             <?php
                     $cat = get_the_category();
                     $catName = $cat[0]->cat_name; //カテゴリー名
                     $catslug = $cat[0]->slug; //スラッグ名
+                    $number = get_post_number();
+                    $page = round($number/10+0.5);
                     ?>
             <div class="primary">
-                <a href="<?php echo home_url(); ?>/category/<?php echo $catslug ?>#<?php the_field('id') ?>">
+                <?php
+                        $number = get_post_number();
+                        echo ('<span>');
+                        echo esc_html($number);
+                        echo ('</span>');
+                        ?>
+                <a
+                    href="<?php echo home_url(); ?>/category/<?php echo $catslug ?>/page/<?php echo $page ?>/#<?php the_field('id') ?>">
                     <?php
                             $img = get_field('image');
                             $images = wp_get_attachment_image_src($img, 'サイズ');

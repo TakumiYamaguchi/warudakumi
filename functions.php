@@ -242,11 +242,74 @@ add_action('admin_menu', 'Change_menulabel');
 
 
 // 投稿のアーカイブページを作成する
-function post_has_archive($args, $post_type)
+// function post_has_archive($args, $post_type)
+// {
+// 	if ('post' == $post_type) {
+// 		$args['rewrite'] = true; // リライトを有効にする
+// 		$args['has_archive'] = 'archive'; // 任意のスラッグ名
+// 	}
+// 	return $args;
+// }
+
+
+
+function get_post_number($previous = false, $same_term = true, $taxonomy = 'category')
 {
-	if ('post' == $post_type) {
-		$args['rewrite'] = true; // リライトを有効にする
-		$args['has_archive'] = 'archive'; // 任意のスラッグ名
-	}
-	return $args;
+  global $wpdb;
+
+  if ((!$post = get_post()) || !taxonomy_exists($taxonomy))
+    return null;
+
+  $current_post_date = $post->post_date;
+  $join = '';
+  $where = '';
+
+  if ($same_term) {
+    $join .= " INNER JOIN $wpdb->term_relationships AS tr ON p.ID = tr.object_id INNER JOIN $wpdb->term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id";
+    $where .= $wpdb->prepare("AND tt.taxonomy = %s", $taxonomy);
+
+    if (!is_object_in_taxonomy($post->post_type, $taxonomy))
+      return null;
+
+    $terms = get_the_terms($post->ID, $taxonomy);
+    if ($terms) {
+      $terms = wp_list_sort($terms, array('term_id' => 'ASC'));
+      $term = $terms[0];
+      $where .= " AND tt.term_id = {$term->term_id}";
+    }
+  }
+
+  if (is_user_logged_in()) {
+    $user_id = get_current_user_id();
+
+    $post_type_object = get_post_type_object($post->post_type);
+    if (empty($post_type_object)) {
+      $post_type_cap    = $post->post_type;
+      $read_private_cap = 'read_private_' . $post_type_cap . 's';
+    } else {
+      $read_private_cap = $post_type_object->cap->read_private_posts;
+    }
+
+    $private_states = get_post_stati(array('private' => true));
+    $where .= " AND ( p.post_status = 'publish'";
+    foreach ((array) $private_states as $state) {
+      if (current_user_can($read_private_cap)) {
+        $where .= $wpdb->prepare(" OR p.post_status = %s", $state);
+      } else {
+        $where .= $wpdb->prepare(" OR (p.post_author = %d AND p.post_status = %s)", $user_id, $state);
+      }
+    }
+    $where .= " )";
+  } else {
+    $where .= " AND p.post_status = 'publish'";
+  }
+
+  $op = $previous ? '<=' : '>=';
+  $order = $previous ? 'ASC' : 'DESC';
+
+  $where = $wpdb->prepare("WHERE p.post_date $op %s AND p.post_type = %s $where", $current_post_date, $post->post_type);
+  $sql = "SELECT COUNT(*) FROM $wpdb->posts AS p $join $where ORDER BY p.post_date $order";
+  $number = (int)$wpdb->get_var($sql);
+
+  return $number;
 }

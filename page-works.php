@@ -59,7 +59,6 @@ Template Name: Works
             );
             $worksAll = new WP_Query($array);
             ?>
-            <?php $post_id = (int) ($cat_total / 10 + 0.5) ?>
             <?php if ($worksAll->have_posts()) : ?>
             <?php while ($worksAll->have_posts()) : $worksAll->the_post(); ?>
             <div class="entry-count">
@@ -69,7 +68,7 @@ Template Name: Works
                     $catName = $cat[0]->cat_name; //カテゴリー名
                     $catslug = $cat[0]->slug; //スラッグ名
                     $number = get_post_number();
-                    $page = round($number/10+0.5);
+                    $page =  floor ($number/10+0.9);
                     ?>
             <div class="primary">
                 <a
